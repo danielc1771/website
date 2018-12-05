@@ -58,9 +58,9 @@ module.exports = function(router) {
                         to: user.email, // list of receivers
                         subject: 'PixMap: Authenticate Account', // Subject line
                         text:'Hello '+ user.username + 'Thank you for registering at PixMap. Please ' +
-                        'click on the link below to compelete your activation:"http://localhost:8080/activate/' + user.temporaryToken,
+                        'click on the link below to compelete your activation:"https://pix-map.herokuapp.com/activate/' + user.temporaryToken,
                         html: 'Hello<strong> '+ user.username + '</strong>, <br><br>Thank you for registering at PixMap. Please ' +
-                        'click on the link below to compelete your activation: <br><br><a href="http://localhost:8080/activate/' + user.temporaryToken + '">http://localhost:8080</a>'
+                        'click on the link below to compelete your activation: <br><br><a href="https://pix-map.herokuapp.com/activate/' + user.temporaryToken + '">https://pix-map.herokuapp.com/</a>'
                     };
                     transporter.sendMail(mailOptions, function(err, info){
                         if(err) throw err;
@@ -208,9 +208,9 @@ module.exports = function(router) {
                             to: user.email, // list of receivers
                             subject: 'PixMap: Authentication Link Request', // Subject line
                             text:'Hello '+ user.username + ' You recently requested a new account activation link. Please click ' +
-                            'on the following link to compete your activation: "http://localhost:8080/activate/' + user.temporaryToken,
+                            'on the following link to compete your activation: https://pix-map.herokuapp.com/activate/' + user.temporaryToken,
                             html: 'Hello<strong> '+ user.username + '</strong>, <br><br>You recently requested a new account activation link. Please click ' +
-                            'on the following link to compete your activation: <br><br><a href="http://localhost:8080/activate/' + user.temporaryToken + '">http://localhost:8080</a>'
+                            'on the following link to compete your activation: <br><br><a href="https://pix-map.herokuapp.com/activate/' + user.temporaryToken + '">https://pix-map.herokuapp.com/</a>'
                         };
                         transporter.sendMail(mailOptions, function(err, info){
                             if(err) throw err;
@@ -268,7 +268,7 @@ module.exports = function(router) {
     //Route to obatin all user information
     //http://<url>/user-api/getUserInfo
     router.get('/getUserInfo/:user', function(req, res){
-        User.findOne({username: req.params.user}, function(err, data){
+        User.findOne({username: req.params.user}, '-password -temporaryToken', function(err, data){
             if(err) throw err;
 
             if(data) res.send(data);
@@ -297,6 +297,25 @@ module.exports = function(router) {
                     success: false,
                     message: "User does not exist",
                     username: req.params.user
+                });
+            }
+        });
+    });
+
+    //Route to get a users profile picture
+    //http://<url>/user-api/getProfilePic
+    router.get('/getProfilePic/:user', function(req, res){
+        User.findOne({username: req.params.user}, '-_id profilePicture', function(err, user){
+            if(err) throw err;
+
+            if(user && user.profilePicture){
+                res.json({
+                    success: true,
+                    picture: user.profilePicture
+                });
+            } else{
+                res.json({
+                    success: false,
                 });
             }
         });
@@ -402,6 +421,7 @@ module.exports = function(router) {
     //Retrieving friends from a user
     //http://<url>/user-api/getFriends
     router.get('/getFriends/:user', function(req, res){
+        console.log(req.params.user);
         User.find({username: req.params.user}, '-_id following', function(err, data){
             if(err) throw err;
             res.send(data);

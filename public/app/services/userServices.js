@@ -114,6 +114,16 @@ angular.module('userServices', ['authServices'])
             return $http.put('/user-api/deleteAccount', user);
         }
 
+        //User.getProfilePic() -> function call
+        userFactory.getProfilePicFile = function(user){
+            return $http.get('/user-api/getProfilePic/' + user)
+        }
+
+        //User.getProfilePicImage -> function call
+        userFactory.getProfilePicImage = function(file){
+            return $http.get('/profile-api/getProfilePic/' + file);
+        }
+
         //User.getAvatarColor() -> function call
         userFactory.getAvatarColor = function(id){
             var map = { 1: "#0085c3", 2: "#dc5034", 3: "#009f4d", 4: "#5482ab",

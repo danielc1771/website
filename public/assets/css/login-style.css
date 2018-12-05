@@ -1,70 +1,58 @@
-.blurred-bg-container .content h1 {
-  margin: 0;
-  color: white;
-  font-size: 30px;
-  line-height: 40px;
-  font-family: 'Playfair Display', serif;
+/** background styling **/
+body{
+  background: linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%);
 }
 
-.blurred-bg-container {
-  background: url("/assets/images/lagoon.jpg");
-  height: 100vh; /* =h */
-  margin-top: -38px;
-	width: 100%;
-	min-height: 87vh;
-	padding-top: 40px;
-  background-size: cover;
+.right{
+	left: 5px;
+}
+.home-page
+{
+                background-color: #000;
 }
 
-.blurred-bg-container .content {
-  background: inherit;
-  width: 40%; /* =cw */
-  height: 40%; /* =ch */
-  border-radius: 8px;
-  box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
+/* HOVERING OVER SUBMIT AND REGISTER BUTTONS */
+button:hover, button:active{
+        background: #355C7D;
+}
+
+/* NOT REGISTER MESSAGE STYLE */
+.message {
+        margin: 15px 0 0;
+        color: white;
+        font-size: 15px;
+}
+
+.message a{
+        color: #4CAF50;
+        text-decoration: none;
+}
+/** POSITION OF LOG IN BOX **/
+.login {
+  left: 40%;
+  top: 40%;
+  width: 230px;
+  margin-top: -159px: /* height/2 */
+  margin-left: -150px; /* width/2 */
   position: absolute;
-  top: 50%; /* =ct */
-  left: 30%; /* =cl */
-  transform: translate(-50%, -50%);
-  overflow: hidden;
-  padding: 20px;
 }
 
-.blurred-bg-container .text {
-  padding: 16px;
-  background: rgba(255, 255, 255, 0.3);
-  height: 100%;
-  box-sizing: border-box; /* so that padding is included in height */
+/** THE STYLE OF THE LOG IN BOX **/
+.login-style{
+        border-radius: 25px;
+        background: rgba(26,26,26,.87);
+        padding: 20px;
+        height: 200px;
+        width: 300px;
 }
 
-.blurred-bg-container .blur {
-  background: inherit;
-  height: 100vh; /* h */
-  width: 166.667%; /* (100/cw) x 100% */
-  position: absolute;
-  left: 0;
-  top: 0;
-  transform: translate(
-    -10%,
-    -30%
-  ); /* - [cl - (cw/2)] % ,  -[ct - (ch/2)] % */
-  filter: blur(20px);
-  z-index: -1;
+.btn-login{
+        background-color: #8b008b ;
+        border: 0;
+        padding: 8px 70px;
+        border-radius: 50px;
 }
-.error{
-  position: relative;
-  animation: shake 0.2s;
-}
-@keyframes shake{
-  0%, 100%{
-    left: 0px;
-  }
-  20%, 80%{
-    left: -15px;
-  }
-  40%, 60%{
-    left: 15px;
-  }
-}
+
+
 
 

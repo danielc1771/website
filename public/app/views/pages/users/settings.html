@@ -1,3 +1,4 @@
+<font color="white">
 <div class="container">
     <div class="row">
 
@@ -26,11 +27,11 @@
                 <div class="col-sm-4">
                     <h6>Profile Picture</h6>
                     <br>
-                    <div class="avatar-circle" id="avatar" ng-show="settingsCtrl.imageDisplay[1]">
-                        <span class="avatar-initials" id="avatar-text">{{settingsCtrl.avatarText}}</span>
+                    <div class="avatar-md-circle" id="avatar" ng-show="settingsCtrl.imageDisplay[1]">
+                        <span class="avatar-md-initials" id="avatar-text">{{settingsCtrl.avatarText}}</span>
                     </div>
-                    <img id="previewProfilePic" class="responsive-image" ng-show="settingsCtrl.imageDisplay[2]">
-                    <img src="/profile-api/image/{{settingsCtrl.profilePicture}}" class="responsive-image" ng-show="settingsCtrl.imageDisplay[0]">
+                    <img id="previewProfilePic" class="profile-img-circle" ng-show="settingsCtrl.imageDisplay[2]">
+                    <img src="/profile-api/image/{{settingsCtrl.profilePicture}}" class="profile-img-circle" ng-show="settingsCtrl.imageDisplay[0]">
                     <br>
                     <br>
                     <form action="/profile-api/uploadProfilePic" method="POST" enctype="multipart/form-data" id="submission-form">
@@ -69,7 +70,6 @@
             <button type="button" class="btn btn-md btn-primary" ng-click="settingsCtrl.updatePassword(passwordData)">Update Password</button>
             <div class="alert alert-danger inline" ng-show="settingsCtrl.passwordError">{{settingsCtrl.passwordMsg}}</div>
             <div class="alert alert-success inline" ng-show="settingsCtrl.passwordSuccess">{{settingsCtrl.passwordMsg}}</div>
-            <a href="#" style="margin-left: 5px;">Forgot Password</a>
             <br>
             <br>
 
@@ -109,3 +109,4 @@
     <!-- End of modal -->
 
 </div>
+</font>

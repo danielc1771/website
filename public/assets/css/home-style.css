@@ -1,3 +1,55 @@
+/** background styling **/
+body{
+  background: linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%);
+}
+
+.home-page
+{
+                background-color: #000;
+}
+
+/* HOVERING OVER SUBMIT AND REGISTER BUTTONS */
+button:hover, button:active{
+        background: #355C7D;
+}
+
+/* NOT REGISTER MESSAGE STYLE */
+.message {
+        margin: 15px 0 0;
+        color: white;
+        font-size: 15px;
+}
+
+.message a{
+        color: #4CAF50;
+        text-decoration: none;
+}
+/** POSITION OF LOG IN BOX **/
+.intro {
+  left: 40%;
+  top: 40%;
+  width: 230px;
+  margin-top: -159px: /* height/2 */
+  margin-left: -150px; /* width/2 */
+  position: absolute;
+}
+
+/** THE STYLE OF THE LOG IN BOX **/
+.intro-style{
+        border-radius: 25px;
+        background: rgba(26,26,26,.87);
+        padding: 20px;
+        height: 200px;
+        width: 300px;
+}
+
+.btn-login{
+        background-color: #8b008b ;
+        border: 0;
+        padding: 8px 70px;
+        border-radius: 50px;
+}
+
 /* FADING OUT EFFECTS */
 .pixmap-message {
     -webkit-animation: fadeOut 2s forwards;
@@ -20,122 +72,36 @@
 
 /* FADING IN EFFECTS */
 .fade-in {
-	opacity: 1;
-	animation-name: fadeInOpacity;
-	animation-iteration-count: 1;
-	animation-timing-function: ease-in;
-	animation-duration: 10s;
+        opacity: 1;
+        animation-name: fadeInOpacity;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in;
+        animation-duration: 8s;
 }
 
 @keyframes fadeInOpacity {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+        0% {
+                opacity: 0;
+        }
+        100% {
+                opacity: 1;
+        }
 }
 
-/* BLURRED CONTAINER */
-
-.blurred-bg-contain .content h1 {
-  margin: 0;
-  color: white;
-  font-size: 30px;
-  line-height: 40px;
-  font-family: 'Playfair Display', serif;
-}
-
-p.small {
-	line-height: 1.0
-}
-
-p.line-height {
-	line-height: 2.0;
-}
-
-.blurred-bg-contain {
-  background: url("/assets/images/skiing.png");
-  height: 100vh; /* =h */
-  margin-top: -38px;
-	width: 100%;
-	min-height: 87vh;
-	padding-top: 40px;
-  background-size: cover;
-}
-
-.blurred-bg-contain .content {
-  background: inherit;
-  width: 50%; /* =cw */
-  height: 40%; /* =ch */
-  border-radius: 8px;
-  box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
-  position: absolute;
-  top: 50%; /* =ct */
-  left: 40%; /* =cl */
-  transform: translate(-50%, -50%);
-  overflow: hidden;
-}
-
-.blurred-bg-contain .text {
-  padding: 16px;
-  background: rgba(255, 255, 255, 0.3);
-  height: 100%;
-  box-sizing: border-box; /* so that padding is included in height */
-}
-
-.blurred-bg-contain .blur {
-  background: inherit;
-  height: 100vh; /* h */
-  width: 166.667%; /* (100/cw) x 100% */
-  position: absolute;
-  left: 0;
-  top: 0;
-  transform: translate(
-    -10%,
-    -30%
-  ); /* - [cl - (cw/2)] % ,  -[ct - (ch/2)] % */
-  filter: blur(20px);
-  z-index: -1;
-}
-
-/* Button Stuff */
-.swagButton {
-	/* color: #31A6FF; */
-	color: #77B5FE
-	font-family: "proxima nova"
-	font-weight: 100;
-	font-size: 20px;
-	text-align: center;
-	/** circular outline **/
-	border: solid 2px #31A6FF;
-	border-radius: 60px;
-	padding: 10px 200px;
-	/** transition from regular to hover effect **/
-	transition-duration: 200ms;
-}
-
-/** contents in here show when someone hoves over button **/
-.swagButton:hover {
-	background-color: #31A6FF;
-	color: #fff;
-}
-
-          * {
+* {
                 margin: 0;
                 padding: 0;
-            }
-            body {
-                background-color: #000;
-            }
-            .fly-in-text {
+}
+.fly-in-text
+{
                 list-style: none;
                 position: absolute;
                 left: 50%;
                 top: 50%;
                 transform: translateX(-50%) translateY(-50%);
-            }
-            .fly-in-text li {
+}
+ .fly-in-text li
+{
                 display: inline-block;
                 margin-right: 50px;
                 font-family: Open Sans, Arial;
@@ -143,14 +109,17 @@ p.line-height {
                 font-size: 4em;
                 color: #fff;
                 opacity: 1;
-                transition: all 2.5s ease;
-            }
-            .fly-in-text li:last-child {
+                transition: all 2s ease;
+}
+.fly-in-text li:last-child
+{
                 margin-right: 0;
-            }
-            .fly-in-text.hidden li {
+}
+
+.fly-in-text.hidden li
+{
                 opacity: 0;
-            }
+}
             .fly-in-text.hidden li:nth-child(1) { transform: translateX(-200px) translateY(-200px); }
             .fly-in-text.hidden li:nth-child(2) { transform: translateX(20px) translateY(100px); }
             .fly-in-text.hidden li:nth-child(3) { transform: translateX(-150px) translateY(-80px); }
