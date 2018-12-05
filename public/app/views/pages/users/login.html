@@ -1,46 +1,44 @@
-<div class="blurred-bg-container">
-    <div class = "content">
-    <div class="page-header">
-        <h1>User Login</h1>
-    </div>
+\<!DOCTYPE html>
+<html>
+    <!--- FADING IN WEBSITE CONTENT -->
 
-    <div>
-        <form ng-submit="userCtrl.logIn(loginData)">
-            <label><font color="white"> Username: </font></label>
-            <input class="form-control" type="text" name="username" placeholder="please enter username" ng-model="userCtrl.loginData.username" required>
-            <br>
+    <body>
+       <div class="diagonal-gradient">
+        <div class="login">
+            <div class="login-style">
+                 <div>
+                 <!-- USER LOG IN FORM -->
+                <form ng-submit="userCtrl.logIn(loginData)" style="width: 300px; height: 50px;">
+                        <!-- DO NOT COMBINE THE TEXTBOX DIV TOGETHER -->
+                        
+			<div class="textbox">
+                                <input type="text" name="username" placeholder="Username" ng-model="userCtrl.loginData.username" required>
+                        </div>
+			
+			&nbsp;&nbsp;
+                       
+			<div class="textbox">
+                                <input type="password" name="password" placeholder="Password" ng-model="userCtrl.loginData.password" required>
+                        </div> 
+			<br> <br> 
+  			<div class="right">
+                 <button class="btn btn-login">Login</button> </div>
+                </form>
 
-            <label><font color="white">Password:</font></label>
-            <input class="form-control" type="password" name="password" placeholder="please enter password" ng-model="userCtrl.loginData.password" required>
-            <br>
-            <button class="btn btn-primary" type="submit">Login</button>&nbsp
-            <a href = "/auth/facebook" target="_blank"><button type = "button" class = "btn btn-success">Facebook</button></a>
-
-        </form>
-        <br>
-
-        <div class="jumbotron text-center" ng-show="userCtrl.loading">
-            <span class="glyphicon glyphicon-repeat spinner"></span>
-            <p>Loading...</p>
-        </div>
+        <!-- OUTPUT MESSAGES -->
 
         <div class="row show-hide-message" ng-show="userCtrl.successMsg">
-            <div class="alert alert-success">{{userCtrl.successMsg}}</div>
+                <div class="alert alert-success" style="position: absolute; top: 51%; width: 115%; left: 0%">{{userCtrl.successMsg}}</div>
         </div>
 
         <div class="row show-hide-message" ng-show="userCtrl.errorMsg">
-            <div class="alert alert-danger">{{userCtrl.errorMsg}}</div>
+                <div class="alert alert-danger" style= "top:51%; position: absolute; width: 115%;  left: 0%;">{{userCtrl.errorMsg}}</div>
         </div>
 
-        <div class="row show-hide-message" ng-show="facebook.errorMsg">
-            <div class="alert alert-danger">{{facebook.errorMsg}}</div>
-        </div>
-    </div>
-    <div class="blur"></div>
-</div>
 
-    <div class="row show-hide-message" ng-show="facebook.errorMsg">
-        <div class="alert alert-danger">{{facebook.errorMsg}}</div>
-    </div>
+         </div> <!-- login style -->
+       </div> <!-- login -->
+     </div>
+    </body>
 
-</div>
+</html>
